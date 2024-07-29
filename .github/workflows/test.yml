@@ -4,13 +4,12 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.11", "3.10"]
 
-    setps:
+    steps:
       - uses: actions/checkout@v4
 
       - name: Setup Python
