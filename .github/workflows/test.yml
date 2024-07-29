@@ -1,0 +1,36 @@
+name: Tests Demo
+
+on:
+
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  
+  check-links:
+
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+
+    setps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16.13.x
+          cache: npm
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Unit Tests
+        run: python -m unittest discover -s tests/unit -v
+
+      - name: Integration Tests
+        run: python -m unittest discover -s tests/integration -v
