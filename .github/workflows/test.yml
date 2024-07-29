@@ -3,7 +3,7 @@ name: Tests Demo
 on: [push]
 
 jobs:
-  buil:
+  build:
 
     runs-on: ubuntu-latest
     strategy:
