@@ -2,7 +2,7 @@ from pyrsistent import pmap, pvector, plist, s
 from functools import reduce
 
 def string_to_edge(s):
-    """Parses a string and returns an edge (a list with two elements)
+    """aParses a string and returns an edge (a list with two elements)
     Example:
     >>> string_to_edge("1 2")
     plist([1, 2])
